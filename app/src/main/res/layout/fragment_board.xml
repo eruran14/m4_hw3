@@ -6,11 +6,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".BoardFragment">
 
+
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="match_parent" >
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <Button
+        android:id="@+id/btn_skip"
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="@string/skip"
+        android:layout_marginTop="40dp"
+        android:textAllCaps="false"
+        android:textColor="@color/black" />
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/indicator"

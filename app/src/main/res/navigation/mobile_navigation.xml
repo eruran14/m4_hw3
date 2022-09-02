@@ -27,4 +27,14 @@
         android:name="com.eru.les3_m4.BoardFragment"
         android:label="fragment_board"
         tools:layout="@layout/fragment_board" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.eru.les3_m4.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.eru.les3_m4.ui.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 </navigation>

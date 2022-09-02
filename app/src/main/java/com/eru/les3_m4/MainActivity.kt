@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.eru.les3_m4.databinding.ActivityMainBinding
+import com.eru.les3_m4.ui.Prefs
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,13 +30,15 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.profileFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        navController.navigate(R.id.boardFragment)
+        val prefs = Prefs(this)
+        if (!prefs.isShown())
+            navController.navigate(R.id.boardFragment)
 
         navController.addOnDestinationChangedListener(object : NavController.OnDestinationChangedListener {
             override fun onDestinationChanged(
@@ -54,5 +57,4 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
-
 }

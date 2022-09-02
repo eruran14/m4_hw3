@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.eru.les3_m4.databinding.FragmentBoardBinding
+import com.eru.les3_m4.ui.Prefs
 import me.relex.circleindicator.CircleIndicator3
 
 class BoardFragment : Fragment() {
@@ -28,11 +29,17 @@ class BoardFragment : Fragment() {
 
         loadData(data)
 
-        val adapter = BoardAdapter(findNavController(), data)
+        val adapter = BoardAdapter(requireContext(),findNavController(), data)
         binding.viewPager.adapter = adapter
 
         val indicator: CircleIndicator3 = binding.indicator
         indicator.setViewPager(binding.viewPager)
+
+        binding.btnSkip.setOnClickListener {
+            val prefs = Prefs(requireContext())
+            prefs.saveState()
+            findNavController().navigateUp()
+        }
 
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
