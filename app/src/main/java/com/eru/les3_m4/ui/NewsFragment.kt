@@ -32,7 +32,8 @@ class NewsFragment : Fragment() {
 
     private fun save() {
         val title = binding.editText1.text.toString().trim()
-        val news = News(0,title, getDate(System.currentTimeMillis(), "dd/MM/yyyy hh:mm:ss.SSS"))
+        val news = News(0,title, getDate(System.currentTimeMillis(), "hh:mm dd-MMMM-yyyy"))
+
         App.dataBase.newsDao().insert(news)
         findNavController().navigateUp()
     }

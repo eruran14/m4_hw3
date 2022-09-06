@@ -8,3 +8,7 @@ import com.eru.les3_m4.models.News
 abstract class AppDataBase: RoomDatabase() {
     abstract fun newsDao(): NewsDao
 }
+//@Database(entities = [News::class], version = 2, autoMigrations = [AutoMigration(from = 1, to = 2)])
+//abstract class AppDataBase: RoomDatabase(){
+//    abstract fun newsDao(): NewsDao
+//}
