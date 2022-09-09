@@ -39,14 +39,14 @@ class HomeFragment : Fragment() {
         }
         App.dataBase.newsDao().getAllLive().observe(viewLifecycleOwner){ list ->
             adapter.addItems(list)
-//            if(list.isNotEmpty()){
-//                list.sortedBy { it.createdAt  }
-//            }
-            for (it in list){
-
-            }
         }
         adapter = NewsAdapter{
+
+        }
+
+
+        binding.newsRecycler.adapter = adapter
+        adapter.onLongClick = {
             val alertDialogBuilder = AlertDialog.Builder(requireContext())
             alertDialogBuilder.setTitle("Вы действительно хотите удалить элемент из списка?")
             alertDialogBuilder.setMessage("Вы собираетесь удалить один из элементов из базы данных в списке")
@@ -54,14 +54,10 @@ class HomeFragment : Fragment() {
                 App.dataBase.newsDao().delete(adapter.getItem(it))
             }
             alertDialogBuilder.setNegativeButton("Нет"){_,_ ->
-                    Toast.makeText(context, "ну ладно", Toast.LENGTH_SHORT).show()
-                }
+                Toast.makeText(context, "ну ладно", Toast.LENGTH_SHORT).show()
+            }
             alertDialogBuilder.show()
-
         }
-
-
-            binding.newsRecycler.adapter = adapter
 
     }
 

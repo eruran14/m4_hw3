@@ -37,4 +37,9 @@
         android:name="com.eru.les3_m4.ui.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.eru.les3_m4.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

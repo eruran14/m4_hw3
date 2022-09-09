@@ -8,7 +8,7 @@ data class News(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val title: String,
-    val createdAt: String?
+    val createdAt: Long
 )
 
 

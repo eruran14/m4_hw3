@@ -13,7 +13,7 @@ interface NewsDao {
     @Query("SELECT * FROM news")
     fun getAll(): List<News>
 
-    @Query("SELECT * FROM news")
+    @Query("SELECT * FROM news order by createdAt desc")
     fun getAllLive(): LiveData<List<News>>
 
     @Insert

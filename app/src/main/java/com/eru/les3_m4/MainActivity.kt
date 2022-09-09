@@ -12,6 +12,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.eru.les3_m4.databinding.ActivityMainBinding
 import com.eru.les3_m4.ui.Prefs
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        if (Firebase.auth.currentUser == null)
+            navController.navigate(R.id.loginFragment)
 
         val prefs = Prefs(this)
 //        if (!prefs.isShown())
